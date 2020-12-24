@@ -70,21 +70,18 @@ let getTotalGrade = function (DATA) {
 };
 console.log('총평점' + getTotalGrade(DATA));
 
-
 //전공평점
 let getMajorCredit = function (DATA) {
-  let magorCredit = DATA.reduce((accumulator, currentValue) => {
+  let majorCredit = DATA.reduce((accumulator, currentValue) => {
     if (currentValue.major === true) {
       return accumulator + currentValue.credit;
-    }else {
-        return;
     }
+    return accumulator;
   }, 0);
-  return magorCredit;
+  return majorCredit;
 };
 
 console.log('전공평점' + getMajorCredit(DATA));
-
 
 //전공이수학점
 let getMajorGrade = function (DATA) {
@@ -99,4 +96,21 @@ let getMajorGrade = function (DATA) {
 
 console.log('전공이수학점' + getMajorGrade(DATA));
 
+// 4.5 학점 to 4.0
+let convertCredit = function () {
+  let result = 0;
+  result = 60 + ((getMajorCredit(DATA) - 1) * 40) / 3.5;
 
+  return result;
+};
+
+console.log('백분율로 환산하면' + convertCredit() + '입니다.');
+
+// 과목 추가 함수
+
+let addLecture = function () {
+  let newLecture = { name: '알고리즘', grade: 'B', credit: 3, Major: true };
+  DATA.push(newLecture);
+};
+console.log(addLecture());
+console.log(DATA);
