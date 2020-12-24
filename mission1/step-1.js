@@ -19,6 +19,7 @@ var GRADE_MAP = {
 //reduce
 
 function getGradeAverage(gradeDatas) {
+  // grade = [[],[],[]]
   const gradeInfo = gradeDatas.reduce(
     (accumulator, gradeData) => {
       const rank = gradeData[1]; //A
@@ -39,7 +40,7 @@ function getGradeAverage(gradeDatas) {
 }
 
 const gradeAve = getGradeAverage(MY_GRADE_DATAS);
-
+console.log('hi');
 console.log(gradeAve);
 
 //for문
