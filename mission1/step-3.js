@@ -114,3 +114,5 @@ let addLecture = function () {
 };
 console.log(addLecture());
 console.log(DATA);
+
+
