@@ -99,41 +99,33 @@ const convertCredit = function () {
 
 const addLecture = function (gradeData, name, grade, credit, major) {
   const newLecture = { name, grade, credit, major };
-  return [...gradeData, newLecture]; // immutable (with spread operator);
+  return [...gradeData, newLecture]; // immutable, 구조분해 할당, (with spread operator);
 };
 
-
 const returnResult = function () {
-    const gradeData = addLecture(DATA, '알고리즘', 'A', 3, true);
-    
-    return (
-        '이수학점' +
-        getTotalCredit(gradeData) +
-        '  총평점' +
-        getTotalGrade(gradeData) +
-        '  전공평점' +
-        getMajorCredit(gradeData) +
-        '  전공이수학점' +
-        getMajorGrade(gradeData) +
-        '  백분율로 환산하면' +
-        convertCredit() +
-        '입니다.'
-        );
-    };
-    
-    //2초후 결과 출력
+  const gradeData = addLecture(DATA, '알고리즘', 'A', 3, true);
 
-    const returnResultAfterTowSec = function() {
-        setTimeout(() => {
-            console.log(returnResult(DATA));
-            
-        }, 2000);
-    };
-    
-    
-    returnResultAfterTowSec();
+  return (
+    '이수학점' +
+    getTotalCredit(gradeData) +
+    '  총평점' +
+    getTotalGrade(gradeData) +
+    '  전공평점' +
+    getMajorCredit(gradeData) +
+    '  전공이수학점' +
+    getMajorGrade(gradeData) +
+    '  백분율로 환산하면' +
+    convertCredit() +
+    '입니다.'
+  );
+};
 
-    
-    
-    
-    
+//2초후 결과 출력
+
+const returnResultAfterTowSec = function () {
+  setTimeout(() => {
+    console.log(returnResult(DATA));
+  }, 2000);
+};
+
+returnResultAfterTowSec();
